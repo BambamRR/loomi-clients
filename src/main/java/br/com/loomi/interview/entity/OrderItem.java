@@ -13,11 +13,11 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID orderItemId;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "orderId")
     private Order order;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;
 
