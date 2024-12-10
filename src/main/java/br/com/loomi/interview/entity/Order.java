@@ -6,16 +6,19 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_pedido")
-public class Pedido {
+@Table(name = "tb_order")
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID pedidoId;
+    private UUID orderId;
+
+    @OneToMany
+    @JoinColumn(name = "customerId")
+    private Customer customer;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
