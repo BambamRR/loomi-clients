@@ -16,7 +16,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID orderId;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
 
